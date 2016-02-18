@@ -1,7 +1,11 @@
 package com.Hyperion1302.TheBank;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 
 import com.Hyperion1302.TheBank.Listeners.PlayerJoin;
@@ -24,6 +28,14 @@ public class API {
 		PlayerJoin pj = new PlayerJoin();
 		
 		pm.registerEvents(pj, Core.getInstance());
+	}
+	
+	public void saveCustomFile(File file, FileConfiguration fileconfig) {
+		try {
+			fileconfig.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

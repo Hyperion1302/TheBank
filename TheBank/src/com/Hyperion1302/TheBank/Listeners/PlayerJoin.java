@@ -10,18 +10,18 @@ import com.Hyperion1302.TheBank.Core;
 
 public class PlayerJoin implements Listener {
 	
-	API api = API.getInstance();
+	API cAPI = API.getInstance();
 	Core core = Core.getInstance();
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		
 		Player player = event.getPlayer();
-		player.sendMessage("Bob");
+		player.sendMessage(cAPI.colourize("&eBank Balance:"));
 		
 		//Alert - If server is using plugin (OP only)
 		if (player.isOp()) {
-			player.sendMessage(api.colourize("&c&lAlert> This server is using " + core.pdf.getName()));
+			player.sendMessage(cAPI.colourize("&c&lAlert> This server is using " + core.pdf.getName()));
 		}
 	}
 
