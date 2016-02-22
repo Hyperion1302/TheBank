@@ -37,5 +37,10 @@ public class API {
 			e.printStackTrace();
 		}
 	}
+	
+	public void loadCustomFile(File file, FileConfiguration fileconfig) {
+		fileconfig.options().copyDefaults(true);
+		saveCustomFile(file, fileconfig);
+	}
 
 }

@@ -15,8 +15,8 @@ public class Core extends JavaPlugin {
 	public PluginDescriptionFile pdf = this.getDescription();
 	
 	//File - Declaration
-	File playerBank;
-	FileConfiguration pbConfig;
+	public File playerBank;
+	public FileConfiguration pbConfig;
 	
 	//Instances of classes
 	API cAPI = API.getInstance();
@@ -41,6 +41,7 @@ public class Core extends JavaPlugin {
 		//File - Load
 		playerBank = new File(this.getDataFolder() + "/PlayerBalance.yml");
 		pbConfig = YamlConfiguration.loadConfiguration(playerBank);
+		cAPI.loadCustomFile(playerBank, pbConfig);
 	}
 	
 	public void onDisable() {
