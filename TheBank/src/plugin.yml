@@ -1,3 +1,9 @@
 main: com.Hyperion1302.TheBank.Core
 name: TheBank
 version: 1.0.0
+authors: [Hyperion1302]
+
+commands:
+    thebank:
+        description: Main command
+        aliases: [tb]

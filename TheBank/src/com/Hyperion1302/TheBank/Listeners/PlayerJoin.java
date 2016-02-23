@@ -26,6 +26,7 @@ public class PlayerJoin implements Listener {
 		File playerBank = cCore.playerBank;
 		FileConfiguration pbConfig = YamlConfiguration.loadConfiguration(playerBank);
 		
+		//Values - Configuration File
 		int playerBalance = pbConfig.getInt("Player Balances." + pUUID + ".Balance");
 		
 		//Alert - If server is using plugin (OP only)

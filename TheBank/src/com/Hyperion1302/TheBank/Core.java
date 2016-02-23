@@ -9,6 +9,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.Hyperion1302.TheBank.Commands.CommandHandler;
+import com.Hyperion1302.TheBank.Commands.TheBankCommand;
+import com.Hyperion1302.TheBank.Commands.TheBankSubCommands;
+
 public class Core extends JavaPlugin {
 	
 	ConsoleCommandSender cmd = Bukkit.getConsoleSender();
@@ -35,8 +39,9 @@ public class Core extends JavaPlugin {
 		cmd.sendMessage(cAPI.colourize("&bDeveloper: " + pdf.getAuthors()));
 		cmd.sendMessage(cAPI.colourize("&bIf you like this plugin, be sure to go to the Spigot page to review this plugin."));
 		
-		//Events - Register
+		//Register
 		cAPI.registerEvents();
+		this.registerCommands();
 		
 		//File - Load
 		playerBank = new File(this.getDataFolder() + "/PlayerBalance.yml");
@@ -52,6 +57,18 @@ public class Core extends JavaPlugin {
 		
 		//Save
 		cAPI.saveCustomFile(playerBank, pbConfig);
+	}
+	
+
+	public void registerCommands() {
+		
+		CommandHandler handler = new CommandHandler();
+		
+		handler.register("thebank", new TheBankCommand());
+		handler.register("help", new TheBankSubCommands());
+		handler.register("balance", new TheBankSubCommands());
+		
+		getCommand("thebank").setExecutor(handler);
 	}
 
 }
